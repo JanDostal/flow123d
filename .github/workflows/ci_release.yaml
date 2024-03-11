@@ -128,12 +128,12 @@ jobs:
                 ${{ steps.vars.outputs.pubdir }}/flow123d_${{ steps.vars.outputs.reltag }}_windows_install.exe 
                 ${{ steps.vars.outputs.pubdir }}/flow123d_${{ steps.vars.outputs.reltag }}_windows_install.json 
       
-        - name: SCP upload to Share
-          run: |
-            release_tag="${{ steps.vars.outputs.reltag }}"
-            publish_dir="${{ steps.vars.outputs.pubdir }}"
-            config/build/ssh_upload.sh ${publish_dir} ci-packages/${release_tag} \
-            ${{ secrets.PUBLISH_USER }}@${{ secrets.PUBLISH_HOST }} ${{ secrets.PUBLISH_PASS }}
+        # - name: SCP upload to Share
+        #   run: |
+        #     release_tag="${{ steps.vars.outputs.reltag }}"
+        #     publish_dir="${{ steps.vars.outputs.pubdir }}"
+        #     config/build/ssh_upload.sh ${publish_dir} ci-packages/${release_tag} \
+        #     ${{ secrets.PUBLISH_USER }}@${{ secrets.PUBLISH_HOST }} ${{ secrets.PUBLISH_PASS }}
 
     # Run unit tests with release build, similar to the debug build
     unit_tests:
